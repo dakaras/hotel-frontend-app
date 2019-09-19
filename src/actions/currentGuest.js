@@ -10,6 +10,7 @@ export const setCurrentGuest = (guest) => {
 export const login = credentials => {
     return dispatch => {
         return fetch('http://localhost:3001/api/v1/login', {
+            credentials: "include",
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json'
@@ -34,7 +35,7 @@ export const getCurrentGuest = () => {
     return dispatch => {
         return fetch('http://localhost:3001/api/v1/get_current_guest', {
             credentials: "include",
-            method: 'POST',
+            method: 'GET',
             headers: {
                 "Content-Type": 'application/json'
             },

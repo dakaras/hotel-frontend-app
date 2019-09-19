@@ -7,7 +7,6 @@ import {createStore, applyMiddleware, compose, combineReducers} from 'redux'
 import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
 import guestsReducer from './reducers/guests'
-import currentGuest from './reducers/currentGuest'
 import loginForm from './reducers/loginForm'
 
 const reducer = combineReducers({
