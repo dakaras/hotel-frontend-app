@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import Login from './components/Login.js'
-import Logout from './components/Logout.js'
 import {connect} from 'react-redux'
 import {getCurrentGuest} from './actions/currentGuest'
- 
+import NavBar from './components/Navbar'
+import MainContainer from './components/MainContainer'
+
 class App extends React.Component {
 
   componentDidMount() {
@@ -13,7 +13,11 @@ class App extends React.Component {
 
   render() {
     return (
-     this.props.currentGuest ? <Logout/> : <Login/>
+      <div className='app'>
+        <NavBar/>
+        <MainContainer/>
+      </div>
+      
     );
   }
 }
