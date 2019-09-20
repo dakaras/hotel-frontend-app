@@ -8,9 +8,11 @@ import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
 import guestsReducer from './reducers/guests'
 import loginForm from './reducers/loginForm'
+import currentGuest from './reducers/currentGuest'
 
 const reducer = combineReducers({
     guests: guestsReducer,
+    currentGuest: currentGuest,
     loginForm
 })
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

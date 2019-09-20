@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {logout} from '../actions/currentGuest'
 
 const Logout = ({ logout}) => {
-
+     
     return (
         <form onSubmit={logout}>
             <input type='submit' value='Logout'/>

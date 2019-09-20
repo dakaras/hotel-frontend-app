@@ -6,6 +6,13 @@ export const setCurrentGuest = (guest) => {
     }
 }
 
+export const clearCurrentGuest = () => {
+    return {
+        type: 'CLEAR_CURRENT_GUEST'
+    }
+}
+
+
 //async action creator
 export const login = credentials => {
     return dispatch => {
@@ -24,7 +31,7 @@ export const login = credentials => {
             }
             else {
                 // dispatch({type: "SET_CURRENT_GUEST", guest: guest})
-                dispatch(setCurrentGuest(resp.data))
+                dispatch(setCurrentGuest(resp))
             }
         })
         .catch(console.log)
@@ -50,5 +57,15 @@ export const getCurrentGuest = () => {
             }
         })
         .catch(console.log)
+    }
+}
+
+export const logout = () => {
+    return (dispatch) => {
+        dispatch(clearCurrentGuest())
+        return fetch('http://localhost:3001/api/v1/logout', {
+            credentials: 'include',
+            method: 'DELETE',
+        })
     }
 }
