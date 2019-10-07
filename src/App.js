@@ -22,9 +22,9 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({currentGuest}) => {
+const mapStateToProps = (state) => {
   return {
-    currentGuest
+    currentGuest: state.currentGuest
   }
 }
 export default connect(mapStateToProps, {getCurrentGuest})(App);

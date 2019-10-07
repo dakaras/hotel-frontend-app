@@ -4,8 +4,6 @@ export default (state = null, action) => {
             return action.payload
         case 'CLEAR_CURRENT_GUEST':
             return null 
-        default: {
-            return state
-        }
+        default: return state
     }
 }

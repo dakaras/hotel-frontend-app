@@ -1,3 +1,5 @@
+import {resetLoginForm} from './loginForm'
+
 //synchronous action creator
 export const setCurrentGuest = (guest) => {
     return {
@@ -54,6 +56,7 @@ export const getCurrentGuest = () => {
             }
             else {
                 dispatch(setCurrentGuest(resp.data))
+                dispatch(resetLoginForm)
             }
         })
         .catch(console.log)
