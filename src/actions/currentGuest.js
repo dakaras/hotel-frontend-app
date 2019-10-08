@@ -33,6 +33,7 @@ export const login = credentials => {
             }
             else {
                 dispatch(setCurrentGuest(resp.data))
+                dispatch(resetLoginForm())
             }
         })
         .catch(console.log)
@@ -58,7 +59,6 @@ export const getCurrentGuest = () => {
             else {
                 console.log("In getCurrentGuest:", resp.data)
                 dispatch(setCurrentGuest(resp.data))
-                dispatch(resetLoginForm)
             }
         })
         .catch(console.log)
