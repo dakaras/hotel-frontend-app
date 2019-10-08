@@ -3,7 +3,7 @@ export default (state = null, action) => {
         case 'SET_CURRENT_GUEST':
             return action.payload
         case 'CLEAR_CURRENT_GUEST':
-            return null 
+            return null
         default: return state
     }
 }

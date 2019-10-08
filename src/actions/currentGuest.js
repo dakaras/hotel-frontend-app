@@ -32,8 +32,7 @@ export const login = credentials => {
                 alert(resp.error)
             }
             else {
-                // dispatch({type: "SET_CURRENT_GUEST", guest: guest})
-                dispatch(setCurrentGuest(resp))
+                dispatch(setCurrentGuest(resp.data))
             }
         })
         .catch(console.log)
@@ -53,8 +52,11 @@ export const getCurrentGuest = () => {
         .then(resp => {
             if (resp.error){
                 alert(resp.error)
+            } else if (resp.alert) {
+                alert(resp.alert)
             }
             else {
+                console.log("In getCurrentGuest:", resp.data)
                 dispatch(setCurrentGuest(resp.data))
                 dispatch(resetLoginForm)
             }

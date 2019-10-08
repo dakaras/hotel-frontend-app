@@ -4,8 +4,6 @@ import Login from './Login.js'
 import Logout from './Logout.js'
 
 const Navbar = ({currentGuest}) => {
-    console.log(currentGuest)
-
     return (
        <div className='navbar'>
         {currentGuest ? `Welcome, ${currentGuest.attributes.name}!` : ""}
