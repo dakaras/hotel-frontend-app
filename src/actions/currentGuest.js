@@ -1,5 +1,6 @@
 import {resetLoginForm} from './loginForm'
-
+import {resetSignupForm} from './signupForm'
+import {getReservations} from './reservations'
 //synchronous action creator
 export const setCurrentGuest = (guest) => {
     return {
@@ -34,11 +35,41 @@ export const login = credentials => {
             else {
                 dispatch(setCurrentGuest(resp.data))
                 dispatch(resetLoginForm())
+                dispatch(getReservations())
             }
         })
         .catch(console.log)
     }
 }
+
+export const signup = credentials => {
+    return dispatch => {
+        const guestInfo = {
+            guest: credentials
+        }
+        return fetch('http://localhost:3001/api/v1/signup', {
+            credentials: "include",
+            method: 'POST',
+            headers: {
+                "Content-Type": 'application/json'
+            },
+            body: JSON.stringify(guestInfo)
+        })
+        .then(resp => resp.json())
+        .then(resp => {
+            if (resp.error){
+                alert(resp.error)
+            }
+            else {
+                dispatch(setCurrentGuest(resp.data))
+                dispatch(resetSignupForm())
+                dispatch(getReservations())
+            }
+        })
+        .catch(console.log)
+    }
+}
+
 
 export const getCurrentGuest = () => {
     return dispatch => {
@@ -57,8 +88,8 @@ export const getCurrentGuest = () => {
                 alert(resp.alert)
             }
             else {
-                console.log("In getCurrentGuest:", resp.data)
                 dispatch(setCurrentGuest(resp.data))
+                dispatch(getReservations())
             }
         })
         .catch(console.log)

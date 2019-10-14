@@ -9,11 +9,15 @@ import thunk from 'redux-thunk'
 import guestsReducer from './reducers/guests'
 import loginForm from './reducers/loginForm'
 import currentGuest from './reducers/currentGuest'
+import reservations from './reducers/reservations'
+import signupForm from './reducers/signupForm'
 
 const reducer = combineReducers({
     guests: guestsReducer,
     currentGuest: currentGuest,
-    loginForm
+    loginForm,
+    reservations,
+    signupForm
 })
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)))
