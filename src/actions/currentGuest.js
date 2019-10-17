@@ -17,7 +17,7 @@ export const clearCurrentGuest = () => {
 
 
 //async action creator
-export const login = credentials => {
+export const login = (credentials, history) => {
     return dispatch => {
         return fetch('http://localhost:3001/api/v1/login', {
             credentials: "include",
@@ -36,13 +36,14 @@ export const login = credentials => {
                 dispatch(setCurrentGuest(resp.data))
                 dispatch(resetLoginForm())
                 dispatch(getReservations())
+                history.push('/')
             }
         })
         .catch(console.log)
     }
 }
 
-export const signup = credentials => {
+export const signup = (credentials, history) => {
     return dispatch => {
         const guestInfo = {
             guest: credentials
@@ -64,6 +65,7 @@ export const signup = credentials => {
                 dispatch(setCurrentGuest(resp.data))
                 dispatch(resetSignupForm())
                 dispatch(getReservations())
+                history.push('/')
             }
         })
         .catch(console.log)
