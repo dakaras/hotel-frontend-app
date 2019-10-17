@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import {createStore, applyMiddleware, compose, combineReducers} from 'redux'
 import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
-import guestsReducer from './reducers/guests'
+// import guestsReducer from './reducers/guests'
 import loginForm from './reducers/loginForm'
 import currentGuest from './reducers/currentGuest'
 import reservations from './reducers/reservations'
@@ -14,7 +14,7 @@ import signupForm from './reducers/signupForm'
 import newReservationForm from './reducers/newReservationForm'
 
 const reducer = combineReducers({
-    guests: guestsReducer,
+    // guests: guestsReducer,
     currentGuest: currentGuest,
     loginForm,
     reservations,

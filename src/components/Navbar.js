@@ -1,10 +1,14 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {NavLink} from 'react-router-dom'
+import Logout from './Logout'
 
 const Navbar = ({currentGuest}) => {
     return (
        <div className='navbar'>
-        {currentGuest ? `Welcome, ${currentGuest.attributes.name}!` : ""}
+         <NavLink exact activeClassName='current' to='/reservations'>Reservations  |</NavLink>
+         <NavLink exact activeClassName='current' to='/reservations/new'>Make a Reservation</NavLink>
+         {!!currentGuest ? <Logout/> : null}
        </div>
     )
 }

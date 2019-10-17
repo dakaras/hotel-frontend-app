@@ -1,6 +1,6 @@
 import {resetLoginForm} from './loginForm'
 import {resetSignupForm} from './signupForm'
-import {getReservations} from './reservations'
+import {getReservations, clearReservations} from './reservations'
 //synchronous action creator
 export const setCurrentGuest = (guest) => {
     return {
@@ -101,6 +101,7 @@ export const getCurrentGuest = () => {
 export const logout = () => {
     return (dispatch) => {
         dispatch(clearCurrentGuest())
+        dispatch(clearReservations())
         return fetch('http://localhost:3001/api/v1/logout', {
             credentials: 'include',
             method: 'DELETE',

@@ -6,6 +6,9 @@ export const setReservations = (reservations) => {
     }
 }
 
+export const clearReservations = () => {
+    return {type: 'CLEAR_RESERVATIONS'}
+}
 //asynchronous actions
 export const getReservations = () => {
     return dispatch => {
