@@ -3,7 +3,7 @@ import './App.css';
 import {connect} from 'react-redux'
 import {getCurrentGuest} from './actions/currentGuest'
 import NavBar from './components/Navbar'
-import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Login from './components/Login'
 import Reservations from './components/Reservations'
 import Signup from './components/Signup'
@@ -19,7 +19,7 @@ class App extends React.Component {
     return (
       <Router>
       <div className='app'>
-        {!!this.props.currentGuest? <NavBar/> : <Home/>}<br/>
+        {!!this.props.currentGuest? <NavBar location={this.props.location}/> : <Home/>}<br/>
           <Switch>
             <Route exact path='/signup' component={Signup}/>
             <Route exact path='/login' component={Login}/>

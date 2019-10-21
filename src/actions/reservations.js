@@ -9,6 +9,13 @@ export const setReservations = (reservations) => {
 export const clearReservations = () => {
     return {type: 'CLEAR_RESERVATIONS'}
 }
+
+export const addReservation = (reservation) => {
+    return {
+        type: "ADD_RESERVATION",
+        reservation
+    }
+}
 //asynchronous actions
 export const getReservations = () => {
     return dispatch => {
@@ -30,5 +37,29 @@ export const getReservations = () => {
                 }
             })
             .catch(console.log)
+    }
+}
+
+export const createReservation = reservationData => {
+    return dispatch => {
+        debugger
+        const sendData = {
+            reservation: {
+                start_date: reservationData.startDate,
+                end_date: reservationData.endDate,
+                name: reservationData.name,
+                guest_id: reservationData.currentGuestId,
+            }
+        }
+        return fetch('http://api/v1/localhost:3001/reservations', {
+            method: "POST",
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(sendData)
+        })
+        .then(resp => resp.json())
+        
     }
 }

@@ -8,7 +8,6 @@ const Reservations = (props) => {
     <ReservationCard 
         reservation={r} 
         key={r.id}/>)
-    console.log("rescards", resCards)
     return (
             resCards.length > 0 ? resCards : null 
     )

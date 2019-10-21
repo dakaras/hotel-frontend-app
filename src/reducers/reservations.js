@@ -6,6 +6,8 @@ export default (state = [], action) => {
             return action.payload
         case 'CLEAR_RESERVATIONS':
             return []
+        case 'ADD_RESERVATION':
+            return state.reservations.concat(action.reservations)
         default:
             return state
     }

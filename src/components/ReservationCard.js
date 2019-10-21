@@ -1,7 +1,6 @@
 import React from 'react'
 
 const ReservationCard = ({reservation}) => {
-    console.log("ReservationCard:", reservation)
     return (
         <div>
             <h2>Reservation #{reservation.id}</h2>
