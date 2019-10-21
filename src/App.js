@@ -9,6 +9,9 @@ import Reservations from './components/Reservations'
 import Signup from './components/Signup'
 import Home from './components/Home'
 import newReservationForm from './components/NewReservationForm'
+import Rooms from './components/Rooms'
+import ShowRoom from './components/ShowRoom'
+import Error from './components/Error'
 
 class App extends React.Component {
   componentDidMount() {
@@ -25,6 +28,8 @@ class App extends React.Component {
             <Route exact path='/login' component={Login}/>
             <Route exact path ='/reservations' component={Reservations}/>
             <Route exact path ='/reservations/new' component={newReservationForm}/>
+            <Route exact path ='/rooms' component={Rooms}/>
+            <Route exact path ='/rooms/:id' component={ShowRoom}/>
           </Switch>
       </div>
       </Router>
