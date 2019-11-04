@@ -1,11 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class ShowRoom extends Component {
-    render() {
-        return (
-            <div>
-                hello from single room
-            </div>
-        )
-    }
+const ShowRoom = ({room}) => {
+    return (
+        <div>
+            <h2>Room: {room.id}</h2>
+            <h3>Name:</h3>
+            <p>{room.attributes.name}</p>
+            <h3>Price:</h3>
+            <p>{room.attributes.price}</p>
+        </div>
+    )
 }
+export default ShowRoom

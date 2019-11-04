@@ -12,10 +12,12 @@ import newReservationForm from './components/NewReservationForm'
 import Rooms from './components/Rooms'
 import ShowRoom from './components/ShowRoom'
 import Error from './components/Error'
+import {getRooms} from './actions/rooms'
 
 class App extends React.Component {
   componentDidMount() {
     this.props.getCurrentGuest()
+    this.props.getRooms()
   }
 
   render() {
@@ -30,6 +32,7 @@ class App extends React.Component {
             <Route exact path ='/reservations/new' component={newReservationForm}/>
             <Route exact path ='/rooms' component={Rooms}/>
             <Route exact path ='/rooms/:id' component={ShowRoom}/>
+            <Route component={Error}/>
           </Switch>
       </div>
       </Router>
@@ -42,4 +45,4 @@ const mapStateToProps = (state) => {
     currentGuest: state.currentGuest
   }
 }
-export default connect(mapStateToProps, {getCurrentGuest})(App);
+export default connect(mapStateToProps, {getCurrentGuest, getRooms})(App);

@@ -42,16 +42,16 @@ export const getReservations = () => {
 
 export const createReservation = reservationData => {
     return dispatch => {
-        debugger
         const sendData = {
             reservation: {
                 start_date: reservationData.startDate,
                 end_date: reservationData.endDate,
                 name: reservationData.name,
                 guest_id: reservationData.currentGuestId,
+                room_id: reservationData.roomId,
             }
         }
-        return fetch('http://api/v1/localhost:3001/reservations', {
+        return fetch('http://localhost:3001/api/v1/reservations', {
             method: "POST",
             credentials: 'include',
             headers: {

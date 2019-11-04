@@ -1,11 +1,20 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import ShowRoom from './ShowRoom'
 
-const Rooms = () => {
+const Rooms = (props) => {
+    const roomCards = props.rooms.map(room => 
+        <ShowRoom 
+            room = {room}
+            key ={room.id}
+        />)
     return (
-        <div>
-            Hello from rooms
-        </div>
+       roomCards 
     )
 }
-
-export default Rooms
+const mapStateToProps = state => {
+    return {
+        rooms: state.rooms
+    }
+}
+export default connect(mapStateToProps)(Rooms)
