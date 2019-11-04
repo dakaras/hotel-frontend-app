@@ -1,7 +1,6 @@
 const initialState = {
     start_date: "",
     end_date: "",
-    name: ""
 }
 
 export default (state = initialState, action) => {

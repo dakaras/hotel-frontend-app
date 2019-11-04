@@ -2,28 +2,19 @@ import React from 'react'
 import { updateReservationForm } from '../actions/newReservationForm'
 import {connect} from 'react-redux'
 import {createReservation} from '../actions/reservations'
-import ShowRoom from './ShowRoom'
-import Rooms from './Rooms'
 
-function NewReservationForm({name, startDate, endDate, history, updateReservationForm, createReservation, currentGuestId, roomId, rooms}) {
+function NewReservationForm({startDate, endDate, updateReservationForm, createReservation, currentGuestId, roomId}) {
     const handleOnChange = (event) => {
         const {name, value} = event.target
         updateReservationForm(name,value)
     }
     const handleSubmit = event => {
         event.preventDefault()
-        createReservation({startDate, endDate, currentGuestId, })
+        createReservation({startDate, endDate, currentGuestId,roomId })
     }
     
     return (
         <form onSubmit={handleSubmit}>
-            {/* <select name='roomId' onChange={handleOnChange} >
-                <option defaultValue>Rooms - Daily Rates</option>
-                <option value="Single">Single Room - $100</option>
-                <option value="Double">Double Room - $200</option>
-                <option value="Suite">Suite - $300</option>
-                <option value="Executive">Executive King - $400</option>
-            </select><br/> */}
             
             <input name='startDate' 
             onChange={handleOnChange} 
@@ -39,13 +30,12 @@ function NewReservationForm({name, startDate, endDate, history, updateReservatio
 }
 
 const mapStateToProps = state => {
-    const {startDate, endDate, name} = state.newReservationForm
+    const {startDate, endDate, roomId} = state.newReservationForm
     const currentGuestId = state.currentGuest ? state.currentGuest.id : ""
     return {
         startDate,
         endDate,
-        currentGuestId, 
-        rooms: state.rooms
+        currentGuestId
     }
 }
 export default connect(mapStateToProps, {updateReservationForm, createReservation} )(NewReservationForm)
