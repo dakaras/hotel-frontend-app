@@ -60,6 +60,14 @@ export const createReservation = reservationData => {
             body: JSON.stringify(sendData)
         })
         .then(resp => resp.json())
-        
+        .then(resp => {
+             if (resp.error) {
+                 alert(resp.error)
+             } else if (resp.alert) {
+                 alert(resp.alert)
+             } else {
+                 dispatch(addReservation(resp.data))
+             }
+        })
     }
 }

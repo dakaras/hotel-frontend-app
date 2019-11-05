@@ -7,7 +7,7 @@ export default (state = [], action) => {
         case 'CLEAR_RESERVATIONS':
             return []
         case 'ADD_RESERVATION':
-            return state.reservations.concat(action.reservations)
+            return state.concat(action.reservation)
         default:
             return state
     }
