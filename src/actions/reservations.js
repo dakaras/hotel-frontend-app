@@ -1,3 +1,5 @@
+import {resetReservationForm} from './ReservationForm'
+
 // synchronous actions
 export const setReservations = (reservations) => {
     return {
@@ -40,16 +42,15 @@ export const getReservations = () => {
     }
 }
 
-export const createReservation = reservationData => {
+export const createReservation = (reservationData, history )=> {    
+    console.log(reservationData)
     return dispatch => {
         const sendData = {
-            reservation: {
                 start_date: reservationData.startDate,
                 end_date: reservationData.endDate,
                 name: reservationData.name,
                 guest_id: reservationData.currentGuestId,
                 room_id: reservationData.roomId,
-            }
         }
         return fetch('http://localhost:3001/api/v1/reservations', {
             method: "POST",
@@ -61,13 +62,15 @@ export const createReservation = reservationData => {
         })
         .then(resp => resp.json())
         .then(resp => {
-             if (resp.error) {
-                 alert(resp.error)
-             } else if (resp.alert) {
-                 alert(resp.alert)
-             } else {
-                 dispatch(addReservation(resp.data))
-             }
+            if (resp.error) {
+                alert(resp.error)
+            } else if (resp.alert) {
+                alert(resp.alert)
+            } else {
+                dispatch(addReservation(resp.data))
+                dispatch(resetReservationForm())
+                history.push(`/reservations/${resp.data.id}`)
+            }
         })
     }
 }

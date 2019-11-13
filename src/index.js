@@ -11,7 +11,7 @@ import loginForm from './reducers/loginForm'
 import currentGuest from './reducers/currentGuest'
 import reservations from './reducers/reservations'
 import signupForm from './reducers/signupForm'
-import newReservationForm from './reducers/newReservationForm'
+import ReservationForm from './reducers/ReservationForm'
 import rooms from './reducers/rooms'
 
 const reducer = combineReducers({
@@ -20,7 +20,7 @@ const reducer = combineReducers({
     loginForm,
     reservations,
     signupForm,
-    newReservationForm,
+    ReservationForm,
     rooms
 })
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

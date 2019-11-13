@@ -1,13 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
-// import reservations from '../reducers/reservations'
-import ReservationCard from './ReservationCard'
+import {Link} from 'react-router-dom'
 
 const Reservations = (props) => {
     const resCards = props.reservations.map(r => 
-    <ReservationCard 
-        reservation={r} 
-        key={r.id}/>)
+            <p key={r.id}><Link to={`/reservations/${r.id}`}>
+                Start Date: {r.attributes.start_date} - 
+                End Date: {r.attributes.end_date}</Link></p>
+        ) 
     return (
             resCards.length > 0 ? resCards : null 
     )

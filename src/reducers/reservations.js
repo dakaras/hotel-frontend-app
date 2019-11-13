@@ -1,6 +1,5 @@
 
 export default (state = [], action) => {
-
     switch (action.type) {
         case 'SET_RESERVATIONS':
             return action.payload
@@ -8,7 +7,12 @@ export default (state = [], action) => {
             return []
         case 'ADD_RESERVATION':
             return state.concat(action.reservation)
+        case 'EDIT_RESERVATION_FORM':
+             state.map(r => {debugger})
+        case "DELETE_RESERVATION":
+            const reservations = state.reservations.filter(reservation => reservation.id !== action.reservation.id)
+            return reservations
         default:
-            return state
+            return state    
     }
 }

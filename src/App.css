@@ -38,7 +38,7 @@
 }
 
 a.active {
-  color: olivedrab
+  color: goldenrod;
 }
 
 #loggedin{
@@ -49,4 +49,25 @@ a.active {
     right: 0px;
     width: 200px;
     height: 20px;
+    color: goldenrod;
+    padding: 50px 70px 30px 50px 80px;
+    ;
+}
+
+.topnav{
+    position: relative;
+    background-color: #000080;
+    overflow: hidden;
+}
+
+.navbar {
+  text-align: center;
+}
+
+h4#loggedin {
+  color: goldenrod
+}
+
+span#divider{
+  color:white
 }

@@ -3,7 +3,7 @@ import React from 'react'
 const ShowRoom = ({room}) => {
     return (
         <div>
-            <h2>Room: {room.id}</h2>
+            <h2>Room: {room.attributes.id}</h2>
             <h3>Name:</h3>
             <p>{room.attributes.name}</p>
             <h3>Price:</h3>

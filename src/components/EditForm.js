@@ -1,16 +1,17 @@
 import React from 'react'
-import { updateReservationForm } from '../actions/newReservationForm'
+import { updateReservationForm } from '../actions/ReservationForm'
 import {connect} from 'react-redux'
-import {createReservation} from '../actions/reservations'
+import { editReservationForm } from '../actions/ReservationForm'
 
-function NewReservationForm({startDate, endDate, updateReservationForm, createReservation, currentGuestId, roomId}) {
+function EditForm({history, startDate, endDate, updateReservationForm, currentGuestId, reservation, roomId, editReservationForm }) {
     const handleOnChange = (event) => {
         const {name, value} = event.target
         updateReservationForm(name,value)
     }
     const handleSubmit = event => {
+        let id = reservation.id
         event.preventDefault()
-        createReservation({startDate, endDate, currentGuestId,roomId })
+        editReservationForm({startDate, endDate, currentGuestId, roomId, id}, history)
     }
     
     return (
@@ -30,7 +31,7 @@ function NewReservationForm({startDate, endDate, updateReservationForm, createRe
 }
 
 const mapStateToProps = state => {
-    const {startDate, endDate, roomId} = state.newReservationForm
+    const {startDate, endDate} = state.ReservationForm
     const currentGuestId = state.currentGuest ? state.currentGuest.id : ""
     return {
         startDate,
@@ -38,4 +39,4 @@ const mapStateToProps = state => {
         currentGuestId
     }
 }
-export default connect(mapStateToProps, {updateReservationForm, createReservation} )(NewReservationForm)
+export default connect(mapStateToProps, {updateReservationForm, editReservationForm} )(EditForm)

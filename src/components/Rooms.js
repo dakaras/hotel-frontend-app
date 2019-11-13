@@ -1,13 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import ShowRoom from './ShowRoom'
-import NewReservationForm from './NewReservationForm'
+import ReservationForm from './ReservationForm'
 
 const Rooms = (props) => {
     const roomCards = props.rooms.map((room, index)=> 
         <>
         <ShowRoom room={room} key={room.id}/>
-        <NewReservationForm key={index} roomId={room.id}/>
+        <ReservationForm key={index} history={props.history} roomId={room.id}/>
         </>
         )
     return (

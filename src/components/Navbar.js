@@ -6,12 +6,15 @@ import { FaBars } from "react-icons/fa";
 
 const Navbar = ({currentGuest}) => {
     return (
-       <div className='navbar'>
-         <NavLink exact activeClassName='active' to='/reservations'>Reservations  |</NavLink>
-         <NavLink exact activeClassName='active' to='/rooms'>Make a Reservation</NavLink>
-         {!!currentGuest ? <h4 id='loggedin'>Logged in as: {currentGuest.attributes.name}<Logout/> </h4>: null}
-       <FaBars className='menu'/>
-       </div>
+      <div className="topnav">
+      <span className='navbar'>
+        <NavLink exact activeClassName='active' to='/reservations'><strong>Reservations </strong></NavLink>
+        <span id="divider">|</span>
+        <NavLink exact activeClassName='active' to='/rooms'><strong>Make a Reservation</strong></NavLink>
+        {!!currentGuest ? <h4 id='loggedin'>Logged in as: {currentGuest.attributes.name}<Logout/> </h4>: null}
+      <FaBars className='menu'/>
+      </span>
+      </div>
     )
 }
 
