@@ -16,7 +16,7 @@ export const resetReservationForm = () => {
 
 export const editForm = reservation => {
     return {
-        type: "EDIT_RESERVATION_FORM",
+        type: "EDIT_RESERVATION",
         reservation
     }
 }
@@ -24,8 +24,8 @@ export const editForm = reservation => {
 export const editReservationForm = reservation => {
     const reservationFormData = {
         reservation: {
-            startDate: reservation.startDate,
-            endDate: reservation.endDate
+            start_date: reservation.startDate,
+            end_date: reservation.endDate
         }
     }
     return dispatch => {
@@ -45,7 +45,7 @@ export const editReservationForm = reservation => {
             } else if (resp.alert) {
                 alert(resp.alert)
             } else {
-                dispatch({type: "EDIT_RESERVATION_FORM", payload: reservation})
+                dispatch(editForm(resp.data))
                 dispatch(resetReservationForm())
                 // history.push(`/reservations/${resp.data.id}`)
             }

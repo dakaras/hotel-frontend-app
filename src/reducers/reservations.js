@@ -7,8 +7,8 @@ export default (state = [], action) => {
             return []
         case 'ADD_RESERVATION':
             return state.concat(action.reservation)
-        case 'EDIT_RESERVATION_FORM':
-             state.map(r => {debugger})
+        case 'EDIT_RESERVATION':
+            return state.map(r => r.id == action.reservation.id ? action.reservation : r)
         case "DELETE_RESERVATION":
             const reservations = state.reservations.filter(reservation => reservation.id !== action.reservation.id)
             return reservations
