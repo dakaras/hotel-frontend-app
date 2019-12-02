@@ -22,10 +22,11 @@ export const editForm = reservation => {
 }
 
 export const editReservationForm = reservation => {
+    debugger
     const reservationFormData = {
         reservation: {
-            start_date: reservation.startDate,
-            end_date: reservation.endDate
+            start_date: reservation.attributes.start_date,
+            end_date: reservation.attributes.end_date
         }
     }
     return dispatch => {

@@ -43,7 +43,7 @@ export const getReservations = () => {
 }
 
 export const createReservation = (reservationData, history )=> {    
-    console.log(reservationData)
+    console.log('C')
     return dispatch => {
         const sendData = {
                 start_date: reservationData.startDate,
@@ -67,10 +67,12 @@ export const createReservation = (reservationData, history )=> {
             } else if (resp.alert) {
                 alert(resp.alert)
             } else {
+                console.log('D')
                 dispatch(addReservation(resp.data))
                 dispatch(resetReservationForm())
                 history.push(`/reservations/${resp.data.id}`)
             }
         })
     }
+    console.log('E');
 }

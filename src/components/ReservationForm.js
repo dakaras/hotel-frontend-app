@@ -10,7 +10,9 @@ function ReservationForm({history, startDate, endDate, updateReservationForm, cr
     }
     const handleSubmit = event => {
         event.preventDefault()
+        console.log('A')
         createReservation({startDate, endDate, currentGuestId, roomId }, history)
+        console.log('B')
     }
     
     return (

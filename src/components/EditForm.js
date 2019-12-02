@@ -3,7 +3,7 @@ import { updateReservationForm } from '../actions/ReservationForm'
 import {connect} from 'react-redux'
 import { editReservationForm } from '../actions/ReservationForm'
 
-function EditForm({history, startDate, endDate, updateReservationForm, currentGuestId, reservation, roomId, editReservationForm }) {
+function EditForm({startDate, endDate, updateReservationForm, currentGuestId, reservation, roomId, editReservationForm }) {
     const handleOnChange = (event) => {
         const {name, value} = event.target
         updateReservationForm(name,value)
@@ -11,7 +11,7 @@ function EditForm({history, startDate, endDate, updateReservationForm, currentGu
     const handleSubmit = event => {
         let id = reservation.id
         event.preventDefault()
-        editReservationForm({startDate, endDate, currentGuestId, roomId, id}, history)
+        editReservationForm({startDate, endDate, currentGuestId, roomId, id})
     }
     
     return (
