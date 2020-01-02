@@ -12,7 +12,7 @@ class ReservationCard extends React.Component {
             rating: this.state.rating + 1
         })
 
-        this.props.rating += 1
+        this.state.rating += 1
     }
 
     handleChange = (event) => {
@@ -48,9 +48,11 @@ class ReservationCard extends React.Component {
                     <textarea value={this.state.value} onChange={this.handleChange}/>
                     </label><br/><br/>
                     <button type='submit' value='Submit'>Submit</button>
-                </form>
-                {this.state.comments}
-                <Link to={`/reservations/${reservation.id}/edit`}>Edit Reservation</Link>
+                </form><br></br>
+                {this.state.comments}<br></br>
+                <br></br>
+                
+                <Link to={`/reservations/${reservation.id}/edit`}>Edit Reservation</Link><br></br>
             </div>
             : null 
         )
